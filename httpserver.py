@@ -6,7 +6,7 @@
 # pythonserver 0.0.0.0:8090 
 # 
 # accept only local requsts on port 80
-# pythonserver localhost:8090 
+# pythonserver localhost:80 
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import socket
