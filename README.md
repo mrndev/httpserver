@@ -1,5 +1,5 @@
 # httpserver
-simple python http server for testing and troubleshooting The server
+simple/dummy python http server for testing and troubleshooting The server
 prints the request and sends the request also to the client. Bind address
 and the port are required. 
 

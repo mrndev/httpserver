@@ -1,4 +1,4 @@
-# Simple http server for troubleshooting and testing purposes. The server
+s# Simple http server for troubleshooting and testing purposes. The server
 # prints the request and sends the request also to the client. Bind address
 # and the port are required. Examples:
 #
@@ -17,7 +17,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         headers_str = str(self.headers)
-        response_string="Hello from "+socket.gethostname()+"\n\nyour request was:\n"+self.requestline+"\n"+headers_str
+        server_ip, server_port = self.request.getsockname()
+        response_string=f"Hello from {socket.gethostname()} ({server_ip})\n\nyour request was:\n"+self.requestline+"\n"+headers_str
         response_string=response_string.encode("utf-8")
         self.send_header('Content-Length',len(response_string))
         self.end_headers()
