@@ -1,4 +1,4 @@
-s# Simple http server for troubleshooting and testing purposes. The server
+# Simple http server for troubleshooting and testing purposes. The server
 # prints the request and sends the request also to the client. Bind address
 # and the port are required. Examples:
 #
