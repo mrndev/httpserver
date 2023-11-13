@@ -9,8 +9,9 @@
 # pythonserver localhost:80 
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import urlparse, parse_qs
 import socket
-import sys
+import sys,os
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -20,6 +21,18 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         response_string=response_string.encode("utf-8")
         self.send_header('Content-Length',len(response_string))
         self.end_headers()
+
+        # Parse the request line
+        parsed_path = urlparse(self.path)
+        path = parsed_path.path
+        query_params = parse_qs(parsed_path.query)
+
+        # possibility to cause cpu load with stress-ng. The query parametes are translated to
+        # long commandline options
+        if path =="/stress-ng":
+            cmdline_params=" ".join([f"--{x[0]}={x[1][0]}" for x in query_params.items()])
+            cmd="stress-ng "+cmdline_params
+            os.system(cmd)
         
         # Convert headers to a string and encode it to bytes
         print(headers_str.strip())
