@@ -40,4 +40,4 @@ the server can use stress-ng to create CPU load on the webserver.  Command line 
 
 *NOTE*: You will need to install the stress-ng package first (for example "sudo apt install stress-ng" on ubuntu)
 
-Studying the script source code a bit, you should be able add any other shell commands to the script.
+Studying the script source code a bit, you should be able add any other shell too.
