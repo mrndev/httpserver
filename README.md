@@ -6,10 +6,10 @@ and the port are required.
 *Examples:*
 ```
 # accept all request, local and external on port 8090
-pythonserver 0.0.0.0:8090
+python3 httpserver.py 0.0.0.0:8090
 
 # accept only local requsts on port 80
-pythonserver localhost:80
+python3 httpserver.py localhost:80
 ```
 
 *Example output*
