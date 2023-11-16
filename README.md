@@ -28,3 +28,12 @@ content-length: 0
 .
 ```
 
+## creating CPU load on the server 
+
+the server can use stress-ng to create CPU load on the webserver. You will need to install the stress-ng package first. Command line parameters are given as query parameters (use only the "long" parameters e.g. '--cpu xx' etc.). Following example shows how this is done:
+```bash
+ wget -q -O- "85.215.50.162:9991/stress-ng?timeout=10s&cpu=0
+```
+NOTE: There is no error information in the HTTP response, should the command fail. You will need to test your command by running httpserver.py in a terminal window. 
+
+Studying the script source code a bit, you should be able add any other shell commands to the script.
