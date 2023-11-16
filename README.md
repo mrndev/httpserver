@@ -35,7 +35,9 @@ the server can use stress-ng to create CPU load on the webserver.  Command line 
  wget -q -O- "85.215.50.162:9991/stress-ng?timeout=10s&cpu=0
 ```
 *NOTE*: There is no error information in the HTTP response, should the command fail. You will need to test your command by running httpserver.py in a terminal window. 
+
 *NOTE:* use only the "long" parameters with a value e.g. '--cpu xx' etc. Short parameters (e.g. -q), or parameters without a value are not supported.
+
 *NOTE*: You will need to install the stress-ng package first (for example "sudo apt install stress-ng" on ubuntu)
 
 Studying the script source code a bit, you should be able add any other shell commands to the script.
